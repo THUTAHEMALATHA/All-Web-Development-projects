@@ -9,13 +9,28 @@ function Navbar() {
   };
 
   return (
-    <div className="bg-gray-800 text-white p-4 flex justify-between">
-      <div className="flex gap-4">
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/profile">Profile</Link>
-      </div>
+    <div className="bg-slate-900 py-4 flex justify-center">
 
-      <button onClick={logout}>Logout</button>
+      <div className="w-full max-w-3xl flex justify-between items-center text-white px-4">
+
+        <h1 className="text-lg font-semibold">JobTrack</h1>
+
+        <div className="flex gap-6 items-center">
+          <Link to="/dashboard" className="hover:text-teal-400">
+            Dashboard
+          </Link>
+          <Link to="/profile" className="hover:text-teal-400">
+            Profile
+          </Link>
+          <button
+            onClick={logout}
+            className="bg-teal-500 px-4 py-2 rounded-md hover:bg-teal-600 transition"
+          >
+            Logout
+          </button>
+        </div>
+
+      </div>
     </div>
   );
 }

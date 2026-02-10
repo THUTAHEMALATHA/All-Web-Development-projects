@@ -1,12 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+<h1 style={{color: "red"}}>TEST</h1>
 
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
 
   const handleSignup = async () => {
@@ -15,52 +15,71 @@ function Signup() {
         "http://localhost:5000/api/auth/signup",
         { name, email, password }
       );
-
-      alert("Signup successful");
       navigate("/");
-    } catch (error) {
+    } catch {
       alert("Signup failed");
     }
   };
 
   return (
-    <div className="flex flex-col items-center mt-20">
-      <h1 className="text-2xl mb-4">Signup</h1>
+    <div className="h-screen flex items-center justify-center bg-gray-100">
 
-      <input
-        className="border p-2 mb-2"
-        placeholder="Name"
-        onChange={(e) => setName(e.target.value)}
-      />
+      <div className="w-full max-w-sm bg-white shadow-xl rounded-2xl p-10">
 
-      <input
-        className="border p-2 mb-2"
-        placeholder="Email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
+        <h1 className="text-3xl font-semibold text-center mb-8 text-gray-800">
+          Create Account
+        </h1>
 
-      <input
-        type="password"
-        className="border p-2 mb-2"
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <div className="space-y-5">
 
-      <button
-        onClick={handleSignup}
-        className="bg-green-500 text-white px-4 py-2"
-      >
-        Signup
-      </button>
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
 
-      <p className="mt-3">
-        Already have account?{" "}
-        <Link to="/" className="text-blue-500">
-          Login
-        </Link>
-      </p>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+
+          <button
+            onClick={handleSignup}
+            className="w-full bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 transition"
+          >
+            Sign Up
+          </button>
+
+        </div>
+
+        <p className="text-center mt-6 text-gray-600">
+          Already have an account?{" "}
+          <Link to="/" className="text-teal-600 font-medium">
+            Login
+          </Link>
+        </p>
+
+      </div>
+
     </div>
   );
 }
+
+
+<h1 style={{color: "red"}}>TEST</h1>
+
 
 export default Signup;

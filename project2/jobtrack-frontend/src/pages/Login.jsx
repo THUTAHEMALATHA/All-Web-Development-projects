@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -14,44 +13,55 @@ function Login() {
         "http://localhost:5000/api/auth/login",
         { email, password }
       );
-
       localStorage.setItem("token", res.data.token);
       navigate("/dashboard");
-    } catch (error) {
+    } catch {
       alert("Login failed");
     }
   };
 
   return (
-    <div className="flex flex-col items-center mt-20">
-      <h1 className="text-2xl mb-4">Login</h1>
+    <div className="h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-teal-700">
 
-      <input
-        className="border p-2 mb-2"
-        placeholder="Email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
+      <div className="w-full max-w-sm bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-10 text-white">
 
-      <input
-        type="password"
-        className="border p-2 mb-2"
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <h1 className="text-3xl font-semibold text-center mb-6">
+          Sign In
+        </h1>
 
-      <button
-        onClick={handleLogin}
-        className="bg-blue-500 text-white px-4 py-2"
-      >
-        Login
-      </button>
+        <div className="space-y-5">
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 focus:outline-none focus:ring-2 focus:ring-teal-400"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-      <p className="mt-3">
-  Don’t have an account?{" "}
-  <Link to="/signup" className="text-blue-500">
-    Signup
-  </Link>
-</p>
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 focus:outline-none focus:ring-2 focus:ring-teal-400"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button
+            onClick={handleLogin}
+            className="w-full bg-teal-500 py-3 rounded-lg font-medium hover:bg-teal-600 transition"
+          >
+            Login
+          </button>
+        </div>
+
+        <p className="text-center mt-6">
+          Don't have an account?{" "}
+          <Link to="/signup" className="underline text-teal-300">
+            Create Account
+          </Link>
+        </p>
+
+      </div>
 
     </div>
   );
