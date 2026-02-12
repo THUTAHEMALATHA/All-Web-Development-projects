@@ -142,7 +142,7 @@ function Dashboard() {
                       value={app.status}
                       onChange={async (e) => {
                         await axios.patch(
-                          `http://localhost:5000/api/applications/${app.id}`,
+                          `https://jobtrack-backend-wbvf.onrender.com/api/applications/${app.id}`,
                           { status: e.target.value },
                           { headers: { Authorization: `Bearer ${token}` } }
                         );
@@ -159,7 +159,7 @@ function Dashboard() {
                     <button
                       onClick={async () => {
                         await axios.delete(
-                          `http://localhost:5000/api/applications/${app.id}`,
+                          `https://jobtrack-backend-wbvf.onrender.com/api/applications/${app.id}`,
                           { headers: { Authorization: `Bearer ${token}` } }
                         );
                         fetchApplications();
