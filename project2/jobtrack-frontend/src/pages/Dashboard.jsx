@@ -13,7 +13,7 @@ function Dashboard() {
 
   const fetchApplications = async () => {
     const res = await axios.get(
-      "http://localhost:5000/api/applications",
+      "https://jobtrack-backend-wbvf.onrender.com/api/applications",
       { headers: { Authorization: `Bearer ${token}` } }
     );
     setApplications(res.data);
