@@ -23,7 +23,7 @@ function Dashboard() {
     if (!company || !role) return;
 
     await axios.post(
-      "http://localhost:5000/api/applications",
+      "https://jobtrack-backend-wbvf.onrender.com/api/applications",
       { company, role, status: "Applied" },
       { headers: { Authorization: `Bearer ${token}` } }
     );
