@@ -19,8 +19,8 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/applications", applicationRoutes);
 
-app.get("/test", (req, res) => {
-  res.send("API working");
+app.get("/", (req, res) => {
+  res.send("JobTrack Backend API Running");
 });
 
 // Port
