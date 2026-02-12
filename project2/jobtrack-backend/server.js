@@ -23,6 +23,8 @@ app.get("/test", (req, res) => {
   res.send("API working");
 });
 
+// Port
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
